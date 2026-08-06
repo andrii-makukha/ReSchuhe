@@ -37,16 +37,26 @@ One commit should express one coherent outcome. Do not combine unrelated cleanup
 
 ## Validation matrix
 
-| Change | Required validation when available |
-| --- | --- |
-| Documentation | Internal-link check and `git diff --check` |
-| TypeScript or configuration | Lint, typecheck, and targeted tests |
-| Component or styling | Lint, typecheck, Storybook, responsive states, and accessibility checks |
-| User journey | Targeted Playwright scenarios plus relevant component checks |
-| Dependency | Lockfile review, compatibility check, audit/reputation review, and build |
-| Release-impacting | Full relevant test suite and production build |
+| Change                      | Required validation when available                                       |
+| --------------------------- | ------------------------------------------------------------------------ |
+| Documentation               | Internal-link check and `git diff --check`                               |
+| TypeScript or configuration | Lint, typecheck, and targeted tests                                      |
+| Component or styling        | Lint, typecheck, Storybook, responsive states, and accessibility checks  |
+| User journey                | Targeted Playwright scenarios plus relevant component checks             |
+| Dependency                  | Lockfile review, compatibility check, audit/reputation review, and build |
+| Release-impacting           | Full relevant test suite and production build                            |
 
 If a script does not exist yet, state that clearly; do not simulate a pass.
+
+## Foundation commands
+
+- `pnpm check` runs formatting verification, ESLint, TypeScript, and unit tests.
+- `pnpm storybook:build` verifies that the component environment builds statically.
+- `pnpm test:e2e` runs desktop and mobile Chromium scenarios, response-header checks, and axe.
+- `pnpm build` creates the optimized Next.js production build.
+
+Run commands with the Node and pnpm versions pinned in the repository. Browser tests require the
+managed Chromium installed with `pnpm exec playwright install chromium`.
 
 ## Documentation update map
 

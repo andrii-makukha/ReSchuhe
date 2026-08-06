@@ -1,6 +1,6 @@
 # ReSchuhe Architecture
 
-Status: Foundation architecture confirmed; application architecture pending scaffold | Last reviewed: 2026-08-07
+Status: Foundation architecture confirmed and implemented | Last reviewed: 2026-08-07
 
 ## System view
 
@@ -22,24 +22,26 @@ This diagram shows responsibility and handoff boundaries. Stitch concepts and Cr
 
 ## Fixed technology baseline
 
-| Concern | Decision |
-| --- | --- |
-| IDE | Cursor |
-| Primary engineering agent | Codex |
-| Source control | Git and GitHub |
-| Package manager | pnpm |
-| Runtime | Node version pinned by `.node-version` |
-| Web framework | Next.js with TypeScript |
-| Styling | Tailwind CSS using semantic design tokens |
-| UI foundation | shadcn/ui, adapted to the ReSchuhe Design Baseline |
-| Forms and validation | React Hook Form and Zod |
-| Component development | Storybook |
-| Browser automation | Playwright tests and Playwright MCP |
-| UI concept generation | Google Stitch through MCP |
-| Motion | Motion for normal UI behavior; GSAP for justified complex timelines |
-| Creative production | Separate Creative Studio with approved-asset handoff |
+| Concern                   | Decision                                                            |
+| ------------------------- | ------------------------------------------------------------------- |
+| IDE                       | Cursor                                                              |
+| Primary engineering agent | Codex                                                               |
+| Source control            | Git and GitHub                                                      |
+| Package manager           | pnpm                                                                |
+| Runtime                   | Node version pinned by `.node-version`                              |
+| Web framework             | Next.js with TypeScript                                             |
+| Styling                   | Tailwind CSS using semantic design tokens                           |
+| UI foundation             | shadcn/ui, adapted to the ReSchuhe Design Baseline                  |
+| Forms and validation      | React Hook Form and Zod when the first confirmed form requires them |
+| Component development     | Storybook                                                           |
+| Browser automation        | Playwright tests and Playwright MCP                                 |
+| UI concept generation     | Google Stitch through MCP                                           |
+| Motion                    | Motion for normal UI behavior; GSAP for justified complex timelines |
+| Creative production       | Separate Creative Studio with approved-asset handoff                |
 
-Exact package versions are selected and locked during Stage 6; this document does not imply that packages are already installed.
+The Stage 6 packages are installed with exact versions and a pnpm lockfile. The executable inventory
+and deliberate dependency deferrals are recorded in
+[`APPLICATION_FOUNDATION.md`](../engineering/APPLICATION_FOUNDATION.md).
 
 ## Source boundaries
 
@@ -55,18 +57,20 @@ Owns prompts, high-fidelity source media, editable files, experimental variants,
 
 Provide bounded capabilities through explicit integrations. Their generated output, hosted state, or conversation history is not a substitute for repository documentation and versioned code.
 
-## Planned application boundaries
+## Application boundaries
 
-Stage 6 will establish the concrete directory structure. The design must preserve these conceptual boundaries:
-
-- Routes and layouts compose product journeys.
-- Shared UI components implement the Design Baseline.
-- Domain behavior is separated from presentation and external service adapters.
-- Validation schemas are reusable at trust boundaries.
-- Server-only operations and credentials remain inaccessible to browser bundles.
+- `src/app/` owns App Router routes, layouts, metadata, and global token wiring.
+- `src/components/ui/` owns local shadcn-based primitives promoted into the Design Baseline.
+- `src/lib/` owns shared implementation utilities that are independent of a route.
+- `.storybook/` and colocated stories demonstrate component contracts outside product journeys.
+- `e2e/` and colocated unit tests verify browser and component behavior.
+- Future domain behavior must remain separate from presentation and external-service adapters.
+- Future validation schemas must be reusable at trust boundaries.
+- Server-only operations and credentials must remain inaccessible to browser bundles.
 - Content and asset access patterns remain replaceable until the CMS decision is made.
 
-No file-level architecture is approved before the scaffold exists.
+The current route is a static technical status shell. It does not establish navigation, a commercial
+offering, content architecture, or a launch journey.
 
 ## Quality attributes
 

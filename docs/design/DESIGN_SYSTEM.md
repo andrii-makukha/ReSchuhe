@@ -1,6 +1,6 @@
 # ReSchuhe Design System
 
-Status: Governance confirmed; visual values pending brand and Stitch work | Last reviewed: 2026-08-07
+Status: Governance and neutral technical scaffold confirmed; brand values pending | Last reviewed: 2026-08-07
 
 ## Purpose
 
@@ -22,18 +22,20 @@ Stitch is an exploration and concept source. Approved tokens, documented compone
 
 ## Token model
 
-Tokens must describe roles rather than isolated appearance. Exact names and values will be approved during Stages 5–6.
+Tokens describe roles rather than isolated appearance. Core semantic roles now exist in
+`src/app/globals.css` so components and Storybook can be built without arbitrary one-off values.
+Their neutral values are technical defaults, not approved ReSchuhe brand values.
 
-| Category | Intended roles |
-| --- | --- |
-| Color | canvas, surface, text, border, action, focus, status, and overlay roles |
-| Typography | display, heading, body, label, and supporting-text roles |
-| Space | layout rhythm, component gaps, and control insets |
-| Size | content widths, controls, icons, and responsive containers |
-| Shape | radius and border roles |
-| Elevation | layering and shadow roles |
-| Motion | duration, easing, distance, and sequence roles |
-| Breakpoints | content-driven responsive transitions |
+| Category    | Intended roles                                                          |
+| ----------- | ----------------------------------------------------------------------- |
+| Color       | canvas, surface, text, border, action, focus, status, and overlay roles |
+| Typography  | display, heading, body, label, and supporting-text roles                |
+| Space       | layout rhythm, component gaps, and control insets                       |
+| Size        | content widths, controls, icons, and responsive containers              |
+| Shape       | radius and border roles                                                 |
+| Elevation   | layering and shadow roles                                               |
+| Motion      | duration, easing, distance, and sequence roles                          |
+| Breakpoints | content-driven responsive transitions                                   |
 
 Rules:
 
@@ -41,6 +43,7 @@ Rules:
 - A repeated exception becomes a reviewed token or variant, not copied arbitrary styling.
 - Token names describe purpose and remain independent of a particular screen.
 - Light/dark or theme variants are introduced only when product requirements confirm them.
+- No dark-theme variant is implemented in the Stage 6 scaffold.
 
 ## Component contract
 
@@ -58,6 +61,10 @@ Every shared component must document, as applicable:
 - test coverage and known constraints.
 
 Avoid creating a shared component for a single accidental similarity. Extract a component when it protects a stable concept or repeated contract.
+
+The current `Button` and its Storybook stories verify the component pipeline, accessible state
+forwarding, and semantic tokens. They are an infrastructure fixture, not an approved product
+component inventory or visual direction.
 
 ## Responsive baseline
 

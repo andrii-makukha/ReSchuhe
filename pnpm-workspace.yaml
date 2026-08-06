@@ -1,0 +1,15 @@
+nodeVersion: 24.19.0
+engineStrict: true
+pmOnFail: error
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true
+minimumReleaseAgeIgnoreMissingTime: false
+
+packageConfigs:
+  reschuhe:
+    saveExact: true
+
+allowBuilds:
+  esbuild: true
+  sharp: false
+  unrs-resolver: false

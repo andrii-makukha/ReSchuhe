@@ -7,8 +7,9 @@ This document defines engineering guardrails, not a claim of legal or security c
 ## Current exposure
 
 - The GitHub repository is public.
-- The application, backend, forms, accounts, analytics, and production services are not yet implemented.
-- The most immediate risks are credential leakage, excessive tool permissions, unsafe dependencies, and accidental publication of private material.
+- A static application foundation is implemented locally; no production deployment exists.
+- Backend, forms, accounts, analytics, and production services are not implemented.
+- The most immediate risks remain credential leakage, excessive tool permissions, unsafe dependencies, and accidental publication of private material.
 
 ## Repository and secret handling
 
@@ -20,7 +21,17 @@ This document defines engineering guardrails, not a claim of legal or security c
 
 ## Application baseline
 
-When application code is introduced:
+The Stage 6 shell:
+
+- disables the `X-Powered-By` response header;
+- sets `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, and a restrictive
+  `Permissions-Policy`;
+- tests those headers in desktop and mobile browser profiles;
+- uses framework-safe React rendering and contains no raw HTML injection;
+- has no runtime secrets, external data access, state-changing actions, or user input.
+
+A deployment-specific Content Security Policy and HSTS are deferred until the deployment and
+external-resource model are known. Future application work must:
 
 - Validate all untrusted input at the boundary; client validation is not a security boundary.
 - Encode output through framework-safe rendering and avoid unsanitized HTML.
@@ -40,10 +51,14 @@ When application code is introduced:
 
 ## Dependencies and supply chain
 
-- Add the smallest justified dependency set and use the lockfile.
+- Add the smallest justified dependency set and use exact direct versions plus the lockfile.
+- Enforce pnpm's 24-hour minimum release age in strict mode without project exceptions.
+- Keep dependency lifecycle scripts denied by default. The project currently permits only the
+  reviewed `esbuild` install script and explicitly denies `sharp` and `unrs-resolver` scripts.
 - Review package ownership, maintenance, permissions, transitive impact, license, and known security history before adoption.
 - Pin automation actions and production-sensitive tooling according to the CI policy established in Stage 9.
 - Address relevant advisories proportionally; do not apply breaking upgrades without compatibility verification.
+- The Stage 6 lockfile audit reported no known vulnerabilities on 2026-08-07.
 
 ## MCP and external-tool access
 
@@ -56,7 +71,8 @@ When application code is introduced:
 ## Security gates
 
 - Stage 5: verify MCP identity, scope, and bounded behavior. Complete; see [`MCP_INTEGRATIONS.md`](MCP_INTEGRATIONS.md).
-- Stage 6: establish framework security defaults, validation patterns, and secret placeholders.
+- Stage 6: establish framework security defaults, validation boundaries, and secret handling. Complete;
+  there are no current environment variables requiring an `.env.example`.
 - Stage 8: create a feature-specific threat and privacy model before backend/data integration.
 - Stage 9: add automated dependency and code-quality checks with reviewed permissions.
 - Stage 10: complete production threat review, privacy/legal review, incident ownership, backups where relevant, and monitoring configuration.

@@ -1,6 +1,6 @@
 # ReSchuhe
 
-ReSchuhe is the repository for the brand's digital product. The product definition is intentionally being established before application code is scaffolded.
+ReSchuhe is the repository for the brand's digital product. A verified application foundation is in place while product and brand decisions remain explicitly documented.
 
 ## Fixed development platform
 
@@ -23,6 +23,30 @@ Changing this platform requires explicit project-owner approval and a supersedin
 
 ## Current repository state
 
-The environment, repository, Cursor/Codex workspace, documentation foundation, and project-scoped Stitch/Playwright MCP integrations are established and verified. Application scaffolding intentionally begins in Stage 6. There are no install or run commands yet.
+Stages 1–6 are complete. The repository contains a neutral technical shell, a local shadcn component
+foundation, Storybook, unit tests, and Playwright checks for desktop, mobile, accessibility, and
+baseline response headers. The shell is not an approved product experience or visual identity.
 
-Local runtime requirements are recorded in [.node-version](.node-version); pnpm is the package manager for future JavaScript dependencies.
+Implementation details and boundaries are recorded in the
+[application foundation](docs/engineering/APPLICATION_FOUNDATION.md).
+
+## Local development
+
+Use the versions pinned by [.node-version](.node-version) and `package.json`:
+
+```bash
+fnm use
+pnpm install
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+Run the complete local foundation validation with:
+
+```bash
+pnpm check
+pnpm storybook:build
+pnpm test:e2e
+pnpm build
+```

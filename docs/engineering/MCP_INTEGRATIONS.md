@@ -10,10 +10,10 @@ Codex CLI, the Codex IDE extension, and the Codex desktop host share MCP configu
 
 ## Verified inventory
 
-| Server | Transport | Authentication | Persistent safety policy | Verification on 2026-08-07 |
-| --- | --- | --- | --- | --- |
-| Google Stitch | Google-hosted Streamable HTTP endpoint | `STITCH_API_KEY` mapped at runtime to `X-Goog-Api-Key` | Owner-approved design creation/editing is automatic; other writes prompt; server is optional at startup | `list_projects` completed successfully; no project names, IDs, or content were retained |
-| Playwright | Local stdio process via `npx` | None | Prompt for tools not marked read-only; isolated headless browser profile; server is optional at startup | Navigation, accessibility snapshot, title/heading read, and browser close completed on `https://example.com` |
+| Server        | Transport                              | Authentication                                         | Persistent safety policy                                                                                | Verification on 2026-08-07                                                                                   |
+| ------------- | -------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Google Stitch | Google-hosted Streamable HTTP endpoint | `STITCH_API_KEY` mapped at runtime to `X-Goog-Api-Key` | Owner-approved design creation/editing is automatic; other writes prompt; server is optional at startup | `list_projects` completed successfully; no project names, IDs, or content were retained                      |
+| Playwright    | Local stdio process via `npx`          | None                                                   | Prompt for tools not marked read-only; isolated headless browser profile; server is optional at startup | Navigation, accessibility snapshot, title/heading read, and browser close completed on `https://example.com` |
 
 ## Google Stitch
 

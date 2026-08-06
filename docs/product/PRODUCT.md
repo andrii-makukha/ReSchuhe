@@ -16,16 +16,16 @@ ReSchuhe is a digital product under the ReSchuhe brand. Its exact offering, prim
 
 ## Open product decisions
 
-| Decision | Why it is required | Needed before |
-| --- | --- | --- |
-| Commercial offering | Defines what ReSchuhe provides and what must be represented digitally | Product feature design |
-| Primary audience | Determines language, information hierarchy, accessibility needs, and trust signals | User journeys and content architecture |
-| Primary user outcome | Defines the main journey and conversion | Navigation and page scope |
-| Initial market and locale | Affects language, currency, legal duties, search strategy, and operations | Production content and legal review |
-| Launch scope | Separates the first releasable product from later capabilities | Feature implementation |
-| Content owner and update cadence | Determines whether a CMS or repository-managed content is appropriate | Backend/CMS decision |
-| Data collected from users | Determines privacy, security, consent, and retention requirements | Any form, account, or analytics implementation |
-| Success measures | Defines what launch quality and product impact mean | Analytics selection and launch review |
+| Decision                         | Why it is required                                                                 | Needed before                                  |
+| -------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------- |
+| Commercial offering              | Defines what ReSchuhe provides and what must be represented digitally              | Product feature design                         |
+| Primary audience                 | Determines language, information hierarchy, accessibility needs, and trust signals | User journeys and content architecture         |
+| Primary user outcome             | Defines the main journey and conversion                                            | Navigation and page scope                      |
+| Initial market and locale        | Affects language, currency, legal duties, search strategy, and operations          | Production content and legal review            |
+| Launch scope                     | Separates the first releasable product from later capabilities                     | Feature implementation                         |
+| Content owner and update cadence | Determines whether a CMS or repository-managed content is appropriate              | Backend/CMS decision                           |
+| Data collected from users        | Determines privacy, security, consent, and retention requirements                  | Any form, account, or analytics implementation |
+| Success measures                 | Defines what launch quality and product impact mean                                | Analytics selection and launch review          |
 
 ## Scope rules
 

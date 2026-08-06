@@ -9,6 +9,8 @@ dist/
 build/
 .turbo/
 .cache/
+.vercel/
+*.tsbuildinfo
 
 # Tests and generated reports
 coverage/

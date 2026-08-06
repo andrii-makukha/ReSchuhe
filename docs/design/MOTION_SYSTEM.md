@@ -17,13 +17,13 @@ Final dependency choices and bundle impact are verified during application imple
 
 ## Motion roles
 
-| Role | Intended use |
-| --- | --- |
-| Feedback | Confirm direct input or state change |
-| Continuity | Preserve relationship across layout or route changes |
+| Role        | Intended use                                                |
+| ----------- | ----------------------------------------------------------- |
+| Feedback    | Confirm direct input or state change                        |
+| Continuity  | Preserve relationship across layout or route changes        |
 | Orientation | Explain where content enters, leaves, expands, or collapses |
-| Attention | Draw limited attention to a new or important change |
-| Narrative | Support an explicitly approved brand/product story |
+| Attention   | Draw limited attention to a new or important change         |
+| Narrative   | Support an explicitly approved brand/product story          |
 
 ## Rules
 

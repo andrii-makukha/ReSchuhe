@@ -13,16 +13,16 @@ No brand promise, audience, personality, visual style, color, typography, logo s
 
 ## Brand decisions to make
 
-| Decision | Required output |
-| --- | --- |
-| Purpose | A concise reason ReSchuhe exists beyond a feature list |
-| Audience | Named primary and secondary audience with real needs |
-| Promise | A specific, supportable value offered to that audience |
-| Positioning | The category and meaningful distinction ReSchuhe intends to own |
-| Personality | A small set of traits with observable “is / is not” behavior |
-| Voice | Writing principles, vocabulary, formality, and localization rules |
+| Decision         | Required output                                                                     |
+| ---------------- | ----------------------------------------------------------------------------------- |
+| Purpose          | A concise reason ReSchuhe exists beyond a feature list                              |
+| Audience         | Named primary and secondary audience with real needs                                |
+| Promise          | A specific, supportable value offered to that audience                              |
+| Positioning      | The category and meaningful distinction ReSchuhe intends to own                     |
+| Personality      | A small set of traits with observable “is / is not” behavior                        |
+| Voice            | Writing principles, vocabulary, formality, and localization rules                   |
 | Visual direction | Approved logo, color roles, type roles, composition, imagery, and motion principles |
-| Trust model | Evidence and signals needed for users to believe product claims |
+| Trust model      | Evidence and signals needed for users to believe product claims                     |
 
 ## Decision quality rules
 
