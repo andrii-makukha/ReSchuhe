@@ -1,0 +1,7 @@
+# ReSchuhe project-level Codex settings.
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+web_search = "cached"
+
+[sandbox_workspace_write]
+network_access = false
