@@ -23,6 +23,7 @@ This directory is the canonical knowledge base for the ReSchuhe product and its 
 | Motion | [`design/MOTION_SYSTEM.md`](design/MOTION_SYSTEM.md) | Motion roles and implementation boundaries |
 | Architecture | [`architecture/ARCHITECTURE.md`](architecture/ARCHITECTURE.md) | System boundaries and fixed technology choices |
 | Development | [`engineering/DEVELOPMENT_WORKFLOW.md`](engineering/DEVELOPMENT_WORKFLOW.md) | Branching, validation, and definition of done |
+| MCP integrations | [`engineering/MCP_INTEGRATIONS.md`](engineering/MCP_INTEGRATIONS.md) | Project-scoped Stitch and Playwright configuration, security, and verification |
 | Security | [`engineering/SECURITY.md`](engineering/SECURITY.md) | Security and privacy engineering baseline |
 | Image generation | [`creative/IMAGE_GENERATION.md`](creative/IMAGE_GENERATION.md) | Creative asset lifecycle and provenance |
 | Content | [`marketing/CONTENT.md`](marketing/CONTENT.md) | Content standards and unresolved voice decisions |

@@ -23,6 +23,6 @@ Changing this platform requires explicit project-owner approval and a supersedin
 
 ## Current repository state
 
-The environment, repository, Cursor/Codex workspace, and documentation foundation are established. Application scaffolding is intentionally deferred to Stage 6, after the MCP integrations are configured in Stage 5. There are no install or run commands yet.
+The environment, repository, Cursor/Codex workspace, documentation foundation, and project-scoped Stitch/Playwright MCP integrations are established and verified. Application scaffolding intentionally begins in Stage 6. There are no install or run commands yet.
 
 Local runtime requirements are recorded in [.node-version](.node-version); pnpm is the package manager for future JavaScript dependencies.

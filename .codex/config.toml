@@ -5,3 +5,50 @@ web_search = "cached"
 
 [sandbox_workspace_write]
 network_access = false
+
+# Google Stitch is a remote MCP server. The API key stays in the host
+# environment and is mapped to the required request header at runtime.
+[mcp_servers.stitch]
+url = "https://stitch.googleapis.com/mcp"
+env_http_headers = { "X-Goog-Api-Key" = "STITCH_API_KEY" }
+enabled = true
+required = false
+default_tools_approval_mode = "writes"
+startup_timeout_sec = 30
+tool_timeout_sec = 300
+
+# The project owner pre-approved these bounded Stitch design operations.
+# Destructive deletion and local-content upload remain on the default prompt.
+[mcp_servers.stitch.tools.create_project]
+approval_mode = "approve"
+
+[mcp_servers.stitch.tools.generate_screen_from_text]
+approval_mode = "approve"
+
+[mcp_servers.stitch.tools.edit_screens]
+approval_mode = "approve"
+
+[mcp_servers.stitch.tools.generate_variants]
+approval_mode = "approve"
+
+[mcp_servers.stitch.tools.create_design_system]
+approval_mode = "approve"
+
+[mcp_servers.stitch.tools.create_design_system_from_design_md]
+approval_mode = "approve"
+
+[mcp_servers.stitch.tools.update_design_system]
+approval_mode = "approve"
+
+[mcp_servers.stitch.tools.apply_design_system]
+approval_mode = "approve"
+
+# Playwright runs against an isolated, non-persistent Chrome profile.
+[mcp_servers.playwright]
+command = "npx"
+args = ["-y", "@playwright/mcp@0.0.79", "--browser", "chrome", "--headless", "--isolated", "--output-dir", ".playwright-mcp", "--codegen", "typescript"]
+enabled = true
+required = false
+default_tools_approval_mode = "writes"
+startup_timeout_sec = 60
+tool_timeout_sec = 90

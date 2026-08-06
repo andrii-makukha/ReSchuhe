@@ -55,7 +55,7 @@ When application code is introduced:
 
 ## Security gates
 
-- Stage 5: verify MCP identity, scope, and bounded behavior.
+- Stage 5: verify MCP identity, scope, and bounded behavior. Complete; see [`MCP_INTEGRATIONS.md`](MCP_INTEGRATIONS.md).
 - Stage 6: establish framework security defaults, validation patterns, and secret placeholders.
 - Stage 8: create a feature-specific threat and privacy model before backend/data integration.
 - Stage 9: add automated dependency and code-quality checks with reviewed permissions.
