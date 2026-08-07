@@ -6,7 +6,8 @@ Status: Confirmed and implemented | Last reviewed: 2026-08-07
 
 Stage 6 establishes a reproducible web-development and verification environment without deciding
 what ReSchuhe sells, who its audience is, how the product is structured, or what its visual identity
-looks like. The current route is a technical status shell only.
+looks like. Stage 7 adds the Approved Asset trust boundary without changing those open decisions.
+The current route is a technical status shell only.
 
 ## Installed baseline
 
@@ -20,21 +21,24 @@ looks like. The current route is a technical status shell only.
 | Unit tests             | Vitest 4.1.10, jsdom, and Testing Library           |
 | Browser tests          | Playwright 1.62.1 with managed Chromium             |
 | Accessibility          | Storybook a11y plus axe checks in Playwright        |
+| Asset handoff          | Zod 4.4.3 plus signature, digest, and policy checks |
 | Formatting and linting | Prettier 3.9.6 and ESLint 9.39.5 with Next.js rules |
 
 `package.json` and `pnpm-lock.yaml` are the exact dependency sources of truth.
 
 ## File boundaries
 
-| Path                  | Responsibility                                                    |
-| --------------------- | ----------------------------------------------------------------- |
-| `src/app/`            | App Router shell, document metadata, and global semantic tokens   |
-| `src/components/ui/`  | Local shadcn-based primitives with stories and unit tests         |
-| `src/lib/`            | Shared implementation utilities                                   |
-| `.storybook/`         | Isolated component-development configuration                      |
-| `e2e/`                | Desktop/mobile browser, accessibility, and response-header checks |
-| `next.config.ts`      | Framework behavior and baseline response headers                  |
-| `pnpm-workspace.yaml` | Runtime enforcement and dependency build-script policy            |
+| Path                   | Responsibility                                                    |
+| ---------------------- | ----------------------------------------------------------------- |
+| `src/app/`             | App Router shell, document metadata, and global semantic tokens   |
+| `src/components/ui/`   | Local shadcn-based primitives with stories and unit tests         |
+| `src/assets/approved/` | Immutable, versioned Approved Asset derivatives and manifests     |
+| `src/lib/`             | Shared implementation utilities                                   |
+| `scripts/assets/`      | Creative Studio package validation and atomic repository import   |
+| `.storybook/`          | Isolated component-development configuration                      |
+| `e2e/`                 | Desktop/mobile browser, accessibility, and response-header checks |
+| `next.config.ts`       | Framework behavior and baseline response headers                  |
+| `pnpm-workspace.yaml`  | Runtime enforcement and dependency build-script policy            |
 
 New domain, service-adapter, content, and asset directories must follow confirmed requirements
 rather than being created speculatively.
@@ -60,6 +64,13 @@ pnpm build
 pnpm audit --audit-level high
 ```
 
+Creative Studio handoff commands:
+
+```bash
+pnpm assets:validate -- "<handoff-package>"
+pnpm assets:import -- "<handoff-package>"
+```
+
 The Playwright browser is installed once per machine with:
 
 ```bash
@@ -75,10 +86,11 @@ promotion pipeline before replacing them.
 
 ## Deliberately deferred dependencies
 
-React Hook Form and Zod remain part of the approved platform but are not installed until a confirmed
-form and validation boundary exist. Motion or GSAP is likewise added only for a documented motion
-requirement. This keeps the initial dependency graph smaller without changing the fixed
-architecture.
+Zod is installed as a development dependency for the confirmed Creative Studio asset-manifest trust
+boundary. This does not define a future application-form schema. React Hook Form remains deferred
+until a confirmed form requires it. Motion or GSAP is likewise added only for a documented motion
+requirement. This keeps the dependency graph tied to implemented boundaries without changing the
+fixed architecture.
 
 No backend, CMS, authentication, analytics, deployment SDK, external font, or runtime secret has
 been added.
@@ -91,4 +103,4 @@ been added.
 - Dependency install scripts are denied unless reviewed in `allowBuilds`.
 - `esbuild` is the only allowed dependency build script; `sharp` and `unrs-resolver` are
   explicitly denied.
-- The Stage 6 audit found no known vulnerabilities.
+- The Stage 7 lockfile audit found no known vulnerabilities on 2026-08-07.

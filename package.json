@@ -18,6 +18,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "assets:validate": "node scripts/assets/validate-handoff.mjs",
+    "assets:import": "node scripts/assets/import-handoff.mjs",
     "storybook": "STORYBOOK_DISABLE_TELEMETRY=1 storybook dev -p 6006",
     "storybook:build": "STORYBOOK_DISABLE_TELEMETRY=1 storybook build",
     "format": "prettier --write .",
@@ -59,6 +61,7 @@
     "tailwindcss": "4.3.3",
     "typescript": "5.9.3",
     "vite": "8.2.0",
-    "vitest": "4.1.10"
+    "vitest": "4.1.10",
+    "zod": "4.4.3"
   }
 }

@@ -8,6 +8,8 @@ This document defines engineering guardrails, not a claim of legal or security c
 
 - The GitHub repository is public.
 - A static application foundation is implemented locally; no production deployment exists.
+- The external Creative Studio is private and local; only sanitized, validated handoff packages may
+  cross into the public repository.
 - Backend, forms, accounts, analytics, and production services are not implemented.
 - The most immediate risks remain credential leakage, excessive tool permissions, unsafe dependencies, and accidental publication of private material.
 
@@ -58,7 +60,7 @@ external-resource model are known. Future application work must:
 - Review package ownership, maintenance, permissions, transitive impact, license, and known security history before adoption.
 - Pin automation actions and production-sensitive tooling according to the CI policy established in Stage 9.
 - Address relevant advisories proportionally; do not apply breaking upgrades without compatibility verification.
-- The Stage 6 lockfile audit reported no known vulnerabilities on 2026-08-07.
+- The Stage 7 lockfile audit reported no known vulnerabilities on 2026-08-07.
 
 ## MCP and external-tool access
 
@@ -68,11 +70,27 @@ external-resource model are known. Future application work must:
 - Do not expose repository secrets or private Creative Studio sources to Stitch, Playwright, or another service without an explicit need and approval.
 - Revoke credentials for removed integrations.
 
+## Creative asset boundary
+
+- Treat every incoming creative file as untrusted, including files produced by known tools.
+- Accept only the documented image allowlist and safe lowercase filenames.
+- Require an exact package inventory, regular files only, declared byte limits, SHA-256 agreement,
+  MIME/extension agreement, and signature inspection before import.
+- Reject active or external SVG content, common embedded raster metadata, and sensitive strings in
+  both the manifest and derivative files.
+- Require sanitized provenance, rights, approval, intended-use, and accessibility records.
+- Never put prompts, source media, contracts, personal names, contact details, private paths, or
+  credentials in the handoff manifest.
+- Keep approved repository versions immutable; changed content must use a new version.
+- The repository build must never depend directly on the external Studio.
+
 ## Security gates
 
 - Stage 5: verify MCP identity, scope, and bounded behavior. Complete; see [`MCP_INTEGRATIONS.md`](MCP_INTEGRATIONS.md).
 - Stage 6: establish framework security defaults, validation boundaries, and secret handling. Complete;
   there are no current environment variables requiring an `.env.example`.
+- Stage 7: establish the private Creative Studio boundary and defense-in-depth Approved Asset
+  validation/import process. Complete; no production or legacy asset was imported.
 - Stage 8: create a feature-specific threat and privacy model before backend/data integration.
 - Stage 9: add automated dependency and code-quality checks with reviewed permissions.
 - Stage 10: complete production threat review, privacy/legal review, incident ownership, backups where relevant, and monitoring configuration.

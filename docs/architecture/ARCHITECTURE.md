@@ -22,36 +22,42 @@ This diagram shows responsibility and handoff boundaries. Stitch concepts and Cr
 
 ## Fixed technology baseline
 
-| Concern                   | Decision                                                            |
-| ------------------------- | ------------------------------------------------------------------- |
-| IDE                       | Cursor                                                              |
-| Primary engineering agent | Codex                                                               |
-| Source control            | Git and GitHub                                                      |
-| Package manager           | pnpm                                                                |
-| Runtime                   | Node version pinned by `.node-version`                              |
-| Web framework             | Next.js with TypeScript                                             |
-| Styling                   | Tailwind CSS using semantic design tokens                           |
-| UI foundation             | shadcn/ui, adapted to the ReSchuhe Design Baseline                  |
-| Forms and validation      | React Hook Form and Zod when the first confirmed form requires them |
-| Component development     | Storybook                                                           |
-| Browser automation        | Playwright tests and Playwright MCP                                 |
-| UI concept generation     | Google Stitch through MCP                                           |
-| Motion                    | Motion for normal UI behavior; GSAP for justified complex timelines |
-| Creative production       | Separate Creative Studio with approved-asset handoff                |
+| Concern                   | Decision                                                              |
+| ------------------------- | --------------------------------------------------------------------- |
+| IDE                       | Cursor                                                                |
+| Primary engineering agent | Codex                                                                 |
+| Source control            | Git and GitHub                                                        |
+| Package manager           | pnpm                                                                  |
+| Runtime                   | Node version pinned by `.node-version`                                |
+| Web framework             | Next.js with TypeScript                                               |
+| Styling                   | Tailwind CSS using semantic design tokens                             |
+| UI foundation             | shadcn/ui, adapted to the ReSchuhe Design Baseline                    |
+| Forms and validation      | Zod at the asset trust boundary; React Hook Form when a form needs it |
+| Component development     | Storybook                                                             |
+| Browser automation        | Playwright tests and Playwright MCP                                   |
+| UI concept generation     | Google Stitch through MCP                                             |
+| Motion                    | Motion for normal UI behavior; GSAP for justified complex timelines   |
+| Creative production       | Separate Creative Studio with approved-asset handoff                  |
 
-The Stage 6 packages are installed with exact versions and a pnpm lockfile. The executable inventory
-and deliberate dependency deferrals are recorded in
+Installed packages use exact versions and a pnpm lockfile. The executable inventory and deliberate
+dependency deferrals are recorded in
 [`APPLICATION_FOUNDATION.md`](../engineering/APPLICATION_FOUNDATION.md).
 
 ## Source boundaries
 
 ### Repository
 
-Owns application code, tests, documentation, design tokens, production component states, web-ready approved assets, and automation needed to build and verify the product.
+Owns application code, tests, documentation, design tokens, production component states, web-ready
+Approved Assets, and automation needed to build and verify the product. Approved Asset versions
+enter only through the validated handoff and live under `src/assets/approved/<asset-id>/v<version>/`.
 
 ### Creative Studio
 
 Owns prompts, high-fidelity source media, editable files, experimental variants, model-specific workflows, and non-production outputs. It must not contain application secrets or become an undocumented dependency of the build.
+
+The Studio-to-repository boundary is defined in
+[`CREATIVE_STUDIO_WORKFLOW.md`](../creative/CREATIVE_STUDIO_WORKFLOW.md). The build never reads from
+the external Studio; only sanitized, validated packages are imported into repository history.
 
 ### External tools and services
 
@@ -62,6 +68,8 @@ Provide bounded capabilities through explicit integrations. Their generated outp
 - `src/app/` owns App Router routes, layouts, metadata, and global token wiring.
 - `src/components/ui/` owns local shadcn-based primitives promoted into the Design Baseline.
 - `src/lib/` owns shared implementation utilities that are independent of a route.
+- `src/assets/approved/` owns immutable, versioned, sanitized production derivatives and manifests.
+- `scripts/assets/` owns the validation and atomic import boundary for Creative Studio handoffs.
 - `.storybook/` and colocated stories demonstrate component contracts outside product journeys.
 - `e2e/` and colocated unit tests verify browser and component behavior.
 - Future domain behavior must remain separate from presentation and external-service adapters.

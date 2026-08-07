@@ -42,6 +42,7 @@ One commit should express one coherent outcome. Do not combine unrelated cleanup
 | Documentation               | Internal-link check and `git diff --check`                               |
 | TypeScript or configuration | Lint, typecheck, and targeted tests                                      |
 | Component or styling        | Lint, typecheck, Storybook, responsive states, and accessibility checks  |
+| Creative asset handoff      | Manifest/package validation, targeted tests, visual review, and diff     |
 | User journey                | Targeted Playwright scenarios plus relevant component checks             |
 | Dependency                  | Lockfile review, compatibility check, audit/reputation review, and build |
 | Release-impacting           | Full relevant test suite and production build                            |
@@ -54,6 +55,9 @@ If a script does not exist yet, state that clearly; do not simulate a pass.
 - `pnpm storybook:build` verifies that the component environment builds statically.
 - `pnpm test:e2e` runs desktop and mobile Chromium scenarios, response-header checks, and axe.
 - `pnpm build` creates the optimized Next.js production build.
+- `pnpm assets:validate -- "<handoff-package>"` verifies a sanitized Creative Studio package without
+  changing the repository.
+- `pnpm assets:import -- "<handoff-package>"` revalidates and atomically imports an immutable version.
 
 Run commands with the Node and pnpm versions pinned in the repository. Browser tests require the
 managed Chromium installed with `pnpm exec playwright install chromium`.
@@ -64,6 +68,8 @@ managed Chromium installed with `pnpm exec playwright install chromium`.
 - Durable architecture change: `docs/architecture/ARCHITECTURE.md` plus a new ADR.
 - New canonical term: root `CONTEXT.md`.
 - Visual-system change: design documents and Storybook when present.
+- Creative asset or workflow change: `docs/creative/`, the public asset manifest, and the consuming
+  component or story.
 - New external data/service behavior: architecture, security, product, and legal readiness documents.
 - Roadmap change: `docs/engineering/ROADMAP.md` with explicit owner approval.
 

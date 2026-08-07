@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "assetId": "replace-with-kebab-case-id",
+  "version": 1,
+  "status": "approved",
+  "title": "Replace with a public title",
+  "purpose": "Replace with the confirmed public product purpose.",
+  "placements": ["Replace with the confirmed component or placement"],
+  "accessibility": {
+    "role": "informative",
+    "altText": "Replace with meaningful alt text, or use role decorative and an empty string."
+  },
+  "provenance": {
+    "sourceType": "provided",
+    "creatorRole": "project-owner",
+    "tool": null,
+    "model": null,
+    "createdAt": "YYYY-MM-DD",
+    "sourceRecord": "studio:replace-with-kebab-case-id/v1",
+    "materialEdits": ["Replace with a sanitized summary of material edits."]
+  },
+  "rights": {
+    "basis": "owned",
+    "summary": "Replace with a public rights summary.",
+    "territories": ["Replace with an approved territory"],
+    "expiresAt": null,
+    "restrictions": []
+  },
+  "approval": {
+    "approvedAt": "YYYY-MM-DD",
+    "reviewerRole": "project-owner",
+    "checks": ["accessibility", "brand", "intended-use", "provenance", "quality", "rights"]
+  },
+  "files": [
+    {
+      "file": "replace-with-kebab-case-name.jpg",
+      "mediaType": "image/jpeg",
+      "sha256": "replace-with-64-lowercase-hex-characters",
+      "bytes": 1,
+      "budgetBytes": 1,
+      "width": 1,
+      "height": 1
+    }
+  ]
+}

@@ -108,6 +108,9 @@ importers:
       vitest:
         specifier: 4.1.10
         version: 4.1.10(@types/node@24.13.3)(jsdom@30.0.1)(vite@8.2.0(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.7.0))
+      zod:
+        specifier: 4.4.3
+        version: 4.4.3
 
 packages:
 

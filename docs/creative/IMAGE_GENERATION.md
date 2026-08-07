@@ -1,6 +1,6 @@
 # ReSchuhe Image Generation and Asset Handoff
 
-Status: Governance confirmed; creative direction and toolchain pending | Last reviewed: 2026-08-07
+Status: Governance and handoff implemented; visual direction and creation providers open | Last reviewed: 2026-08-07
 
 ## Boundary
 
@@ -69,8 +69,11 @@ Do not put sensitive prompts, credentials, restricted source material, or unnece
 
 ## Repository import
 
+- Follow the implemented [`CREATIVE_STUDIO_WORKFLOW.md`](CREATIVE_STUDIO_WORKFLOW.md); do not copy
+  files manually into the repository.
 - Use descriptive, stable lowercase filenames; do not encode secret prompts or personal names.
-- Import only the formats and dimensions required by a confirmed component.
+- Import only the formats and dimensions required by a confirmed component through the validated,
+  immutable Approved Asset handoff.
 - Prefer modern efficient formats when quality, transparency, and browser support permit.
 - Record meaningful alternative text in the content source; use empty alternative text for genuinely decorative images.
 - Remove unused variants from the product repository while retaining source history in the Creative Studio.
@@ -78,7 +81,5 @@ Do not put sensitive prompts, credentials, restricted source material, or unnece
 ## Open decisions
 
 - Approved visual direction and subject policy.
-- Creative Studio toolchain and reproducibility standard.
-- Asset metadata storage format.
-- Repository asset locations after the Next.js scaffold.
+- Creation or generation provider for each confirmed brief; no provider is assumed by default.
 - Image delivery/optimization provider, if any.

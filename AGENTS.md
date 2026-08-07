@@ -58,7 +58,8 @@ See `docs/engineering/DEVELOPMENT_WORKFLOW.md` for the full workflow.
 
 - Drafts, prompts, source files, model files, and generated variants belong in the external Creative Studio.
 - Only approved, licensed, optimized assets needed by the product may be copied into this repository.
-- Imported assets must retain provenance, usage-rights, and accessibility information defined in `docs/creative/IMAGE_GENERATION.md`.
+- Validate and import handoff packages with `pnpm assets:validate` and `pnpm assets:import`; do not manually copy files into `src/assets/approved/`.
+- Imported assets must retain the sanitized provenance, usage-rights, approval, and accessibility information defined in `docs/creative/CREATIVE_STUDIO_WORKFLOW.md`.
 
 ## Validation
 

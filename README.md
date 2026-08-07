@@ -23,12 +23,15 @@ Changing this platform requires explicit project-owner approval and a supersedin
 
 ## Current repository state
 
-Stages 1–6 are complete. The repository contains a neutral technical shell, a local shadcn component
+Stages 1–7 are complete. The repository contains a neutral technical shell, a local shadcn component
 foundation, Storybook, unit tests, and Playwright checks for desktop, mobile, accessibility, and
-baseline response headers. The shell is not an approved product experience or visual identity.
+baseline response headers. A separate local Creative Studio and a validated, immutable
+approved-asset handoff are also established. The shell is not an approved product experience or
+visual identity, and no production brand asset has been imported.
 
 Implementation details and boundaries are recorded in the
-[application foundation](docs/engineering/APPLICATION_FOUNDATION.md).
+[application foundation](docs/engineering/APPLICATION_FOUNDATION.md) and
+[Creative Studio workflow](docs/creative/CREATIVE_STUDIO_WORKFLOW.md).
 
 ## Local development
 
@@ -49,4 +52,11 @@ pnpm check
 pnpm storybook:build
 pnpm test:e2e
 pnpm build
+```
+
+Validate and import an approved Creative Studio handoff with:
+
+```bash
+pnpm assets:validate -- "<handoff-package>"
+pnpm assets:import -- "<handoff-package>"
 ```

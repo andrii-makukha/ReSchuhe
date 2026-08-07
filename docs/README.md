@@ -27,6 +27,7 @@ This directory is the canonical knowledge base for the ReSchuhe product and its 
 | MCP integrations       | [`engineering/MCP_INTEGRATIONS.md`](engineering/MCP_INTEGRATIONS.md)             | Project-scoped Stitch and Playwright configuration, security, and verification |
 | Security               | [`engineering/SECURITY.md`](engineering/SECURITY.md)                             | Security and privacy engineering baseline                                      |
 | Image generation       | [`creative/IMAGE_GENERATION.md`](creative/IMAGE_GENERATION.md)                   | Creative asset lifecycle and provenance                                        |
+| Creative Studio        | [`creative/CREATIVE_STUDIO_WORKFLOW.md`](creative/CREATIVE_STUDIO_WORKFLOW.md)   | Private workspace, approval, optimization, validation, and import workflow     |
 | Content                | [`marketing/CONTENT.md`](marketing/CONTENT.md)                                   | Content standards and unresolved voice decisions                               |
 | SEO                    | [`marketing/SEO.md`](marketing/SEO.md)                                           | Search foundations and research gates                                          |
 | Legal readiness        | [`legal/LEGAL.md`](legal/LEGAL.md)                                               | Legal decision checklist, not legal advice                                     |
