@@ -1,6 +1,6 @@
 # ReSchuhe Architecture
 
-Status: Foundation architecture confirmed and implemented | Last reviewed: 2026-08-07
+Status: Foundation and progressive release architecture confirmed | Last reviewed: 2026-08-07
 
 ## System view
 
@@ -13,12 +13,18 @@ flowchart LR
     Studio["Separate Creative Studio"] --> Approval["Approved asset handoff"]
     Approval --> Repo
     Repo --> GitHub["GitHub"]
-    Repo --> App["Next.js product"]
-    Playwright["Playwright MCP and tests"] --> App
-    App --> Deployment["Deployment target — deferred"]
+    Repo --> Preview["CI and isolated preview"]
+    Preview --> Gate["Production release gate"]
+    Gate --> Public["Public Release Slice"]
+    Repo --> Expansion["Isolated expansion work"]
+    Expansion --> Preview
+    Playwright["Playwright MCP and tests"] --> Preview
+    Playwright --> Public
 ```
 
 This diagram shows responsibility and handoff boundaries. Stitch concepts and Creative Studio outputs become product sources only after documentation and approval.
+The Public Release Slice and expansion work remain parts of the same application; only release-ready
+behavior crosses the production gate.
 
 ## Fixed technology baseline
 
@@ -80,6 +86,20 @@ Provide bounded capabilities through explicit integrations. Their generated outp
 The current route is a static technical status shell. It does not establish navigation, a commercial
 offering, content architecture, or a launch journey.
 
+## Progressive delivery boundaries
+
+- The Public Release Slice is a complete vertical slice, not a separate landing-page codebase.
+- `main` represents the exact production-ready history; `develop` may integrate release and isolated
+  expansion work.
+- Incomplete expansion behavior may exist only in bounded branches and previews. It cannot be
+  reachable, indexed, or required by the public slice.
+- A backend, CMS, authentication system, analytics service, or feature-control mechanism is selected
+  only when a confirmed journey creates the need.
+- Every added capability enters the public Product Experience through the same design promotion,
+  test, security/privacy/legal, operational, and owner-approval gates.
+- The delivery decision is recorded in
+  [`ADR-0002`](../adr/0002-progressive-public-release.md).
+
 ## Quality attributes
 
 - **Clarity:** a contributor can locate the source of a decision and the owner of a responsibility.
@@ -89,9 +109,9 @@ offering, content architecture, or a launch journey.
 - **Maintainability:** shared rules live in tokens, schemas, components, and tests rather than repeated page code.
 - **Observability:** production diagnostics will be selected with privacy and ownership defined first.
 
-## Deferred architecture decisions
+## Pending architecture decisions
 
-- Hosting and deployment provider.
+- Hosting, preview, and deployment provider for the Public Release Slice.
 - Backend and persistence model.
 - CMS and content workflow.
 - Authentication and authorization.
@@ -103,4 +123,6 @@ Each decision must start from confirmed product requirements and include securit
 
 ## Decision records
 
-Accepted decisions live in [`../adr/`](../adr/). The platform baseline is recorded in [`ADR-0001`](../adr/0001-codex-centered-development-platform.md).
+Accepted decisions live in [`../adr/`](../adr/). The platform baseline is recorded in
+[`ADR-0001`](../adr/0001-codex-centered-development-platform.md), and progressive public delivery is
+recorded in [`ADR-0002`](../adr/0002-progressive-public-release.md).

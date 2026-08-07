@@ -31,6 +31,17 @@ Do not design a production journey until these fields are answered:
 - recovery path;
 - measurement of successful completion.
 
+## Public Release Slice
+
+- Ship one complete primary journey before adding disconnected secondary features.
+- Include its entry, decision information, action, progress, success, empty/error recovery, and
+  support states.
+- Do not display controls or destinations for unavailable expansion work unless their truthful
+  purpose is explicitly approved.
+- Validate the journey in an isolated preview with representative content and users before public
+  exposure.
+- Preserve the live journey while later capabilities are developed and released incrementally.
+
 ## Interaction requirements
 
 - Links navigate; buttons perform actions.

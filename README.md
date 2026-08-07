@@ -29,9 +29,16 @@ baseline response headers. A separate local Creative Studio and a validated, imm
 approved-asset handoff are also established. The shell is not an approved product experience or
 visual identity, and no production brand asset has been imported.
 
+The progressive public-release strategy is now confirmed. Stage 8 is active: define one
+production-ready Public Release Slice with an approved visual baseline and one real useful journey,
+then keep that slice live while the full Product Experience expands through controlled releases. The
+offering, audience, first capability, locale, and production visual direction are still open and are
+not inferred by the technical scaffold.
+
 Implementation details and boundaries are recorded in the
 [application foundation](docs/engineering/APPLICATION_FOUNDATION.md) and
-[Creative Studio workflow](docs/creative/CREATIVE_STUDIO_WORKFLOW.md).
+[Creative Studio workflow](docs/creative/CREATIVE_STUDIO_WORKFLOW.md). The current release boundary
+is defined in the [Public Release Slice](docs/product/PUBLIC_RELEASE_SLICE.md).
 
 ## Local development
 

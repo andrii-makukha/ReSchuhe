@@ -66,6 +66,14 @@ The current `Button` and its Storybook stories verify the component pipeline, ac
 forwarding, and semantic tokens. They are an infrastructure fixture, not an approved product
 component inventory or visual direction.
 
+## First production Design Baseline
+
+The Public Release Slice may approve a small but complete token and component subset before the
+entire future design system is known. That subset must cover every real state in the first journey,
+use approved brand roles and content, and pass Storybook, responsive, accessibility, performance,
+and Playwright review. Later components extend this baseline; they do not create a parallel visual
+language.
+
 ## Responsive baseline
 
 - Design from content constraints and user tasks, not named device models.

@@ -41,6 +41,10 @@ This list is a discovery aid, not a statement that every item applies.
 
 Production launch requires the project owner to confirm that applicable legal review is complete, public notices match actual product behavior, consent choices work as described, data/service inventories are current, required owners are assigned, and all production assets have documented usage rights.
 
+An early Public Release Slice is still a production launch. Review applies to the countries, users,
+claims, data, assets, and behavior actually included in that slice; unimplemented future scope does
+not reduce obligations for what is public.
+
 ## Open decisions
 
 All applicability remains open until the product definition, entity, markets, audience, data behavior, and launch scope are confirmed.

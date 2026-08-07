@@ -17,6 +17,7 @@ This directory is the canonical knowledge base for the ReSchuhe product and its 
 | Agent behavior         | [`../AGENTS.md`](../AGENTS.md)                                                   | Repository working rules                                                       |
 | Strategy sequence      | [`engineering/ROADMAP.md`](engineering/ROADMAP.md)                               | Fixed stages and current state                                                 |
 | Product                | [`product/PRODUCT.md`](product/PRODUCT.md)                                       | Goals, scope, and open product decisions                                       |
+| Public release         | [`product/PUBLIC_RELEASE_SLICE.md`](product/PUBLIC_RELEASE_SLICE.md)             | First production slice, decision checklist, release contract, and boundaries   |
 | Brand                  | [`brand/BRAND_DNA.md`](brand/BRAND_DNA.md)                                       | Confirmed identity rules and brand decisions                                   |
 | UX                     | [`design/UX.md`](design/UX.md)                                                   | Experience principles and interaction requirements                             |
 | Design system          | [`design/DESIGN_SYSTEM.md`](design/DESIGN_SYSTEM.md)                             | Tokens, components, and promotion workflow                                     |

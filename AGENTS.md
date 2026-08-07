@@ -3,6 +3,8 @@
 ## Mission
 
 Build ReSchuhe incrementally without changing the approved platform or inventing unresolved product, brand, legal, or business decisions.
+Deliver the approved Public Release Slice early, protect it as production, and grow the same Product
+Experience through controlled expansion releases.
 
 ## Read before working
 
@@ -34,8 +36,9 @@ Do not replace, duplicate, or substantially expand this platform without explici
 
 ## Repository workflow
 
-- `main` represents production-ready history.
-- `develop` is the integration branch during foundation work.
+- `main` represents the exact production-ready history for the Public Release Slice and later
+  releases.
+- `develop` integrates reviewed release and isolated expansion work.
 - Use `codex/<short-scope>` branches from `develop` for isolated feature work when the change warrants a branch.
 - Use small, descriptive Conventional Commit messages.
 - Never force-push, rewrite shared history, delete branches, or commit directly to `main` without explicit approval.
@@ -53,6 +56,16 @@ See `docs/engineering/DEVELOPMENT_WORKFLOW.md` for the full workflow.
 - Keep server-only code and secrets out of client bundles.
 - Do not add a backend, CMS, authentication provider, analytics platform, or other service before its roadmap stage and decision record.
 - Prefer the smallest dependency set that solves the documented requirement.
+
+## Progressive delivery
+
+- Treat `docs/product/PUBLIC_RELEASE_SLICE.md` and ADR-0002 as the release boundary.
+- Keep `main` production-ready and the live slice independently buildable and reversible.
+- Isolate incomplete expansion work in scoped branches and previews; do not expose dead controls,
+  routes, claims, or dependencies publicly.
+- Do not create a disposable launch app, second repository, or competing design system.
+- Promote one complete vertical slice at a time through product, design, Storybook, code, Playwright,
+  security/privacy/legal, operations, and owner approval.
 
 ## Creative boundary
 

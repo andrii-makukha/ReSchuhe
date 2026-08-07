@@ -1,6 +1,6 @@
 # ReSchuhe Security Baseline
 
-Status: Confirmed engineering baseline; feature-specific threat model deferred | Last reviewed: 2026-08-07
+Status: Confirmed baseline; Public Release Slice threat model pending definition | Last reviewed: 2026-08-07
 
 This document defines engineering guardrails, not a claim of legal or security certification.
 
@@ -51,6 +51,17 @@ external-resource model are known. Future application work must:
 - Do not add analytics, tracking, session replay, advertising, or fingerprinting before product and legal review.
 - Never use real personal data in development fixtures or demos.
 
+## Progressive release boundary
+
+- An early public release is production and receives no reduced security or privacy standard.
+- Model threats and data behavior for the exact Public Release Slice before implementing its first
+  state-changing or data-bearing capability.
+- Keep previews non-indexed and restrict them when they expose non-public content, data, or controls.
+- Ensure incomplete expansion work is unreachable from the public deployment and cannot affect its
+  runtime dependencies or authorization assumptions.
+- Define production secrets, access ownership, incident handling, monitoring, backups where needed,
+  and rollback before the first public deployment.
+
 ## Dependencies and supply chain
 
 - Add the smallest justified dependency set and use exact direct versions plus the lockfile.
@@ -91,9 +102,12 @@ external-resource model are known. Future application work must:
   there are no current environment variables requiring an `.env.example`.
 - Stage 7: establish the private Creative Studio boundary and defense-in-depth Approved Asset
   validation/import process. Complete; no production or legacy asset was imported.
-- Stage 8: create a feature-specific threat and privacy model before backend/data integration.
-- Stage 9: add automated dependency and code-quality checks with reviewed permissions.
-- Stage 10: complete production threat review, privacy/legal review, incident ownership, backups where relevant, and monitoring configuration.
+- Stage 8: define the Public Release Slice threat/data model and review any required external service
+  before integration.
+- Stage 9: add automated dependency/code-quality checks, isolated previews, and journey-specific
+  security tests with reviewed permissions.
+- Stage 10: complete production threat/privacy review, incident ownership, backups where relevant,
+  monitoring, and tested rollback before publishing.
 
 ## Incident rule
 

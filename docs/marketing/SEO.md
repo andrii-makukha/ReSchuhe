@@ -8,7 +8,7 @@ Keyword, competitor, locale, and content strategies cannot be approved until the
 
 ## Technical baseline
 
-When the application exists:
+For every releasable route:
 
 - Give each indexable page a unique purpose, title, main heading, and useful description.
 - Use semantic HTML, crawlable navigation, stable URLs, and meaningful internal links.
@@ -29,7 +29,18 @@ When the application exists:
 
 ## Measurement boundary
 
-Search measurement is selected in Stage 10 together with privacy, consent, retention, access, and operational ownership. Do not add tracking scripts during foundation work.
+Search measurement is selected in Stage 10 together with privacy, consent, retention, access, and operational ownership. Do not add tracking scripts before that approval.
+
+## Progressive release indexation
+
+- Isolated previews and expansion routes are non-indexable and must not leak into sitemaps or public
+  navigation.
+- Decide explicitly whether the initial Public Release Slice is indexable or deliberately
+  non-indexed while serving known clients.
+- If indexable, publish only complete, useful, truthful pages with approved locale, canonical URLs,
+  metadata, and ownership.
+- A public URL does not require analytics; measurement tooling still follows privacy and ownership
+  approval.
 
 ## Pre-launch search checklist
 

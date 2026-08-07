@@ -41,6 +41,16 @@ No brand promise, audience, personality, visual style, color, typography, logo s
 5. Encode the approved result in the relevant brand, design, content, and asset documents.
 6. Retire conflicting drafts so they cannot be mistaken for current guidance.
 
+## Public Release Slice minimum
+
+The first public slice does not require every future brand expression to be finished. It does require
+explicit approval of the purpose, primary audience, promise, voice, visual direction, and trust
+signals actually used in that slice. This minimum becomes the first production Design Baseline and
+may be extended without being casually replaced.
+
+Do not publish the neutral technical scaffold as ReSchuhe visual identity while these decisions are
+open.
+
 ## Current prohibition
 
 Until the identity decisions above are approved, do not present generated logos, palettes, fonts, slogans, photography styles, or voice examples as ReSchuhe brand standards.

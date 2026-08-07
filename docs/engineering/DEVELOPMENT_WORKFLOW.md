@@ -1,14 +1,27 @@
 # ReSchuhe Development Workflow
 
-Status: Confirmed foundation workflow | Last reviewed: 2026-08-07
+Status: Confirmed progressive delivery workflow | Last reviewed: 2026-08-07
 
 ## Branch model
 
-- `main` contains production-ready history and is not the default working branch.
-- `develop` integrates foundation and reviewed product work.
+- `main` contains the exact production-ready history for the Public Release Slice and later releases;
+  it is not the default working branch.
+- `develop` integrates reviewed release and isolated expansion work.
 - `codex/<short-scope>` branches start from `develop` for isolated changes that benefit from review or parallel development.
 
 Do not force-push shared branches, rewrite published history, or delete remote branches without explicit project-owner approval.
+
+## Parallel delivery tracks
+
+- **Release track:** fixes, hardening, and complete behavior intended for the next public release.
+- **Expansion track:** confirmed later capabilities developed on `codex/<short-scope>` branches and
+  isolated previews.
+- Expansion work must not make the public slice depend on unreleased routes, data, services, assets,
+  or controls.
+- Do not create a second temporary application, competing design system, or disposable public site.
+- Promote only complete vertical slices to `main`; labels such as experimental or beta do not lower
+  the release gate.
+- Keep the live slice independently buildable, testable, deployable, supportable, and reversible.
 
 ## Change flow
 
@@ -37,19 +50,20 @@ One commit should express one coherent outcome. Do not combine unrelated cleanup
 
 ## Validation matrix
 
-| Change                      | Required validation when available                                       |
-| --------------------------- | ------------------------------------------------------------------------ |
-| Documentation               | Internal-link check and `git diff --check`                               |
-| TypeScript or configuration | Lint, typecheck, and targeted tests                                      |
-| Component or styling        | Lint, typecheck, Storybook, responsive states, and accessibility checks  |
-| Creative asset handoff      | Manifest/package validation, targeted tests, visual review, and diff     |
-| User journey                | Targeted Playwright scenarios plus relevant component checks             |
-| Dependency                  | Lockfile review, compatibility check, audit/reputation review, and build |
-| Release-impacting           | Full relevant test suite and production build                            |
+| Change                      | Required validation when available                                         |
+| --------------------------- | -------------------------------------------------------------------------- |
+| Documentation               | Internal-link check and `git diff --check`                                 |
+| TypeScript or configuration | Lint, typecheck, and targeted tests                                        |
+| Component or styling        | Lint, typecheck, Storybook, responsive states, and accessibility checks    |
+| Creative asset handoff      | Manifest/package validation, targeted tests, visual review, and diff       |
+| User journey                | Targeted Playwright scenarios plus relevant component checks               |
+| Public Release Slice        | Full journey, preview, a11y, performance, security/privacy/legal, rollback |
+| Dependency                  | Lockfile review, compatibility check, audit/reputation review, and build   |
+| Release-impacting           | Full relevant test suite and production build                              |
 
 If a script does not exist yet, state that clearly; do not simulate a pass.
 
-## Foundation commands
+## Core commands
 
 - `pnpm check` runs formatting verification, ESLint, TypeScript, and unit tests.
 - `pnpm storybook:build` verifies that the component environment builds statically.
@@ -82,3 +96,4 @@ managed Chromium installed with `pnpm exec playwright install chromium`.
 - No secrets, private data, temporary files, or accidental generated assets are included.
 - The branch and remote state are known.
 - Remaining risks, limitations, and open decisions are reported.
+- A public change has an owner, verified preview, release approval, monitoring path, and rollback.

@@ -44,6 +44,12 @@ Draft content from confirmed requirements, verify claims and legal implications,
 
 Do not select a CMS merely to begin drafting. The CMS decision follows the confirmed content model, permissions, frequency, preview, localization, and publishing needs.
 
+## Public release content gate
+
+The Public Release Slice uses real approved content for its confirmed market and audience. It must
+not present planned capabilities as available, use fabricated proof, or rely on placeholder copy for
+critical decisions. Every public claim, support path, policy link, and review date needs an owner.
+
 ## Open decisions
 
 - Primary audience and reading context.
